@@ -1,0 +1,73 @@
+@import url(button.css);
+@import url(menus.css);
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Aidan Thiessen */
+.nav-link {
+  color: rgb(112, 112, 112);
+}
+
+.nav-link:active, .nav-link:hover {
+  color: rgb(61, 61, 61);
+}
+
+#sidebar.active .custom-menu {
+  margin-right: -50px;
+}
+
+#sidebar .custom-menu {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    margin-right: -20px;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+.collapsing {
+  position: relative; 
+  height: 0; 
+  overflow: hidden;
+  -webkit-transition-property: height, visibility; 
+  transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
+  transition-duration: 0.35s;  
+  -webkit-transition-timing-function: ease;  
+  transition-timing-function: ease;
+  }
+.collapsing.width {  
+  -webkit-transition-property: width, visibility;  
+  transition-property: width, visibility;  
+  width: 0;  
+  height: auto;
+}
+/* Aidan Thiessen */
+
+
+/* Caedin Cook */
+
+/* Caedin Cook */
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 10; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }

@@ -1,0 +1,27 @@
+#menuOverlay {
+    position: fixed; /* Sit on top of the page content */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 9; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+  #reportOverlay {
+    position: fixed; /* Sit on top of the page content */
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+    z-index: 9; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }

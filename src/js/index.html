@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Map</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+    <script src="./js/map.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+    <!--The div element for the map
+        This is also the bottom layer -->
+    <div id="buttons">
+        <button id="userProfile" type="button" class="btn btn-success btn-circle btn-xl"
+            onclick="alert(1)">Image</button>
+        <button id="addButton" type="button" class="btn btn-success btn-circle btn-xl" onclick="toggleOverlay('reportOverlay')">Add</button>
+        <button id="menuButton" type="button" class="btn btn-success" data-toggle="collapse" data-target="#menuOverlay">Menu</button>
+    </div>
+    <div id="map"></div>
+    <div class="container-fluid" id="overlay" hidden>
+        <div id="loginFormDiv" class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <form id="loginForm" onsubmit="formSubmit(event);" data-url="login" class="mb-md-5 mt-md-4 pb-5">
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                            <p class="text-white-50 mb-5">Please enter your login and password!</p>
+
+                            <div class="form-outline form-white mb-4">
+                                <input name="email" type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                <label class="form-label" for="typeEmailX">Email</label>
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <input name="password" type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                <label class="form-label" for="typePasswordX">Password</label>
+                            </div>
+
+                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+
+                        </form>
+
+                        <div>
+                            <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign
+                                    Up</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Aidan Thiessen*-->
+    <div id="menuOverlay" class="collapse width">
+        <nav id="sidebar" class="bg-light text-dark">
+            <div class="custom-menu">
+                <!--<button id="menuButton" type="button" class="btn btn-success" data-toggle="collapse" data-target="#menuOverlay">Menu</button>-->
+                <button id="sidebarCollapse" type="button" class="btn btn-success" data-toggle="collapse" data-target="#menuOverlay">Menu</button>
+            </div>
+            <div class="p-4 pt-5">
+                <div class="sidebar-header">
+                    <h1>GoFish</h1>
+                </div>
+                <ul class="list-unstyled components pt-3 text-muted">
+                    <!--<li class="active">
+                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#menuOverlay">Close<span class="sr-only">(current)</span></a>
+                    </li>-->
+                    <li class="" onmouseover="style='background-color: rgb(238, 238, 238)'" onmouseout="style=''">
+                        <a class="nav-link" href="#"><h5>Search</h5></a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item" onclick="toggleOverlay('overlay')" onmouseover="style='background-color: rgb(238, 238, 238)'" onmouseout="style=''">
+                        <a class="nav-link" href="#"><h5>Profile</h5></a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item" onmouseover="style='background-color: rgb(238, 238, 238)'" onmouseout="style=''">
+                        <a class="nav-link" href="#"><h5>Groups</h5></a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item" onmouseover="style='background-color: rgb(238, 238, 238)'" onmouseout="style=''">
+                        <a class="nav-link" href="#"><h5>Settings</h5></a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item" onmouseover="style='background-color: rgb(238, 238, 238)'" onmouseout="style=''">
+                        <a class="nav-link" href="#"><h5>Help</h5></a>
+                    </li>
+                    <div class="dropdown-divider"></div>
+                    <li class="nav-item" onmouseover="style='background-color: rgb(238, 238, 238)'" onmouseout="style=''">
+                        <a class="nav-link" href="#"><h5>Sign out</h5></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--*Aidan Thiessen-->
+    <div class="container w-50" id="reportOverlay" hidden>
+        <div class="card bg-dark text-white mx-auto" style="border-radius: 1rem;">
+            <div class="row">
+                <div class="col-4">
+                   <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Trollface_non-free.png" class="card-img-top" height="100px" width="100px">
+                </div>
+                <div class="col-8">
+                    <h5>HELLO</h5>
+                </div>
+            </div>
+            <div class="card-body p-5 text-center">
+                <form>
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1s4wP88iJ2Hp-zFcrVumpqFq716IH6Dk&callback=initMap&libraries=&v=weekly"
+            async></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
